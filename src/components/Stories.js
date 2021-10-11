@@ -32,6 +32,7 @@ const Stories = () => {
       data={data}
       keyExtractor={({name}) => name}
       horizontal
+      showsHorizontalScrollIndicator={false}
       renderItem={({item}) => <Story uri={item.uri} name={item.name} />}
     />
   );
