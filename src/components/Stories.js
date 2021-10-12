@@ -1,5 +1,5 @@
 import React from 'react';
-import {FlatList} from 'react-native';
+import {FlatList, StyleSheet} from 'react-native';
 
 import Story from './Story';
 
@@ -29,6 +29,7 @@ const data = [
 const Stories = () => {
   return (
     <FlatList
+      style={styles.container}
       data={data}
       keyExtractor={({name}) => name}
       horizontal
@@ -37,5 +38,11 @@ const Stories = () => {
     />
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    marginBottom: 15,
+  },
+});
 
 export default Stories;
