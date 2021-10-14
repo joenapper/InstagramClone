@@ -6,6 +6,7 @@ import Post from './Post';
 
 const data = [
   {
+    id: '1',
     user: {
       uri: 'https://reactnative.dev/img/tiny_logo.png',
       name: 'John Doe',
@@ -16,6 +17,7 @@ const data = [
     postedAt: '6 minutes ago',
   },
   {
+    id: '2',
     user: {
       uri: 'https://reactnative.dev/img/tiny_logo.png',
       name: 'Jane Doe',
@@ -26,6 +28,7 @@ const data = [
     postedAt: '11 minutes ago',
   },
   {
+    id: '3',
     user: {
       uri: 'https://reactnative.dev/img/tiny_logo.png',
       name: 'A Doe',
@@ -42,6 +45,7 @@ const Feed = () => {
     <FlatList
       data={data}
       renderItem={({item}) => <Post post={item} />}
+      keyExtractor={({id}) => id}
       ListHeaderComponent={Stories}
     />
   );
