@@ -1,5 +1,5 @@
 import React from 'react';
-import {StatusBar} from 'react-native';
+import {StatusBar, Image} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Foundation from 'react-native-vector-icons/Foundation';
@@ -13,6 +13,8 @@ import CreatePostScreen from './src/screens/CreatePostScreen';
 import NotificationsScreen from './src/screens/NotificationsScreen';
 import ProfileScreen from './src/screens/ProfileScreen';
 
+import logo from "./src/assets/images/logo.png"
+
 const Tab = createBottomTabNavigator();
 
 const App = () => {
@@ -21,7 +23,7 @@ const App = () => {
       <StatusBar />
       <Tab.Navigator
         screenOptions={({route}) => ({
-          tabBarIcon: ({focused, color, size}) => {
+          tabBarIcon: ({color, size}) => {
             if (route.name === 'Home') {
               return <Foundation name="home" size={size} color={color} />;
             }
@@ -41,7 +43,16 @@ const App = () => {
           tabBarActiveTintColor: '#000',
           tabBarInactiveTintColor: 'gray',
           tabBarShowLabel: false,
-          // headerShown: false,
+          headerTitle: "Instagram",
+          headerLeft: () => (
+            <Feather name="camera" size={25} color={'#000'} style={{ marginLeft: 10 }} />
+          ),
+          headerTitle: () => (
+            <Image source={logo} resizeMode="contain" style={{ width: 135 }} />
+          ),
+          headerRight: () => (
+            <Ionicons name="paper-plane-outline" size={25} color={'#000'} style={{ marginRight: 10 }} />
+          )
         })}>
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Discovery" component={DiscoveryScreen} />
