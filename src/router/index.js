@@ -14,50 +14,60 @@ import CreatePostScreen from '../screens/CreatePostScreen';
 import NotificationsScreen from '../screens/NotificationsScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 
-import logo from "../assets/images/logo.png"
+import logo from '../assets/images/logo.png';
 
 const Tab = createBottomTabNavigator();
 
 const Router = () => (
-    <Tab.Navigator
-        screenOptions={({route}) => ({
-          tabBarIcon: ({color, size}) => {
-            if (route.name === 'Home') {
-              return <Foundation name="home" size={size} color={color} />;
-            }
-            if (route.name === 'Discovery') {
-              return <Feather name="search" size={size} color={color} />;
-            }
-            if (route.name === 'Post') {
-              return <Feather name="plus-square" size={size} color={color} />;
-            }
-            if (route.name === 'Notifications') {
-              return <AntDesign name="hearto" size={size} color={color} />;
-            }
-            if (route.name === 'Profile') {
-              return <Ionicons name="person-outline" size={size} color={color} />;
-            }
-          },
-          tabBarActiveTintColor: '#000',
-          tabBarInactiveTintColor: 'gray',
-          tabBarShowLabel: false,
-          headerTitle: "Instagram",
-          headerLeft: () => (
-            <Feather name="camera" size={25} color={'#000'} style={{ marginLeft: 10 }} />
-          ),
-          headerTitle: () => (
-            <Image source={logo} resizeMode="contain" style={{ width: 135 }} />
-          ),
-          headerRight: () => (
-            <Ionicons name="paper-plane-outline" size={25} color={'#000'} style={{ marginRight: 10 }} />
-          )
-        })}>
-        <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Discovery" component={DiscoveryScreen} />
-        <Tab.Screen name="Post" component={CreatePostScreen} />
-        <Tab.Screen name="Notifications" component={NotificationsScreen} />
-        <Tab.Screen name="Profile" component={ProfileScreen} />
-    </Tab.Navigator>
-)
+  <Tab.Navigator
+    screenOptions={({route}) => ({
+      tabBarIcon: ({color, size}) => {
+        if (route.name === 'Home') {
+          return <Foundation name="home" size={size} color={color} />;
+        }
+        if (route.name === 'Discovery') {
+          return <Feather name="search" size={size} color={color} />;
+        }
+        if (route.name === 'Post') {
+          return <Feather name="plus-square" size={size} color={color} />;
+        }
+        if (route.name === 'Notifications') {
+          return <AntDesign name="hearto" size={size} color={color} />;
+        }
+        if (route.name === 'Profile') {
+          return <Ionicons name="person-outline" size={size} color={color} />;
+        }
+      },
+      tabBarActiveTintColor: '#000',
+      tabBarInactiveTintColor: 'gray',
+      tabBarShowLabel: false,
+      headerTitle: 'Instagram',
+      headerLeft: () => (
+        <Feather
+          name="camera"
+          size={25}
+          color={'#000'}
+          style={{marginLeft: 10}}
+        />
+      ),
+      headerTitle: () => (
+        <Image source={logo} resizeMode="contain" style={{width: 135}} />
+      ),
+      headerRight: () => (
+        <Ionicons
+          name="paper-plane-outline"
+          size={25}
+          color={'#000'}
+          style={{marginRight: 10}}
+        />
+      ),
+    })}>
+    <Tab.Screen name="Home" component={HomeScreen} />
+    <Tab.Screen name="Discovery" component={DiscoveryScreen} />
+    <Tab.Screen name="Post" component={CreatePostScreen} />
+    <Tab.Screen name="Notifications" component={NotificationsScreen} />
+    <Tab.Screen name="Profile" component={ProfileScreen} />
+  </Tab.Navigator>
+);
 
 export default Router;
