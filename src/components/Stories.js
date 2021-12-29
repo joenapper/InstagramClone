@@ -1,40 +1,20 @@
 import React from 'react';
 import {FlatList, StyleSheet} from 'react-native';
+import storiesData from '../data/stories';
 
 import Story from './Story';
-
-const data = [
-  {
-    uri: 'https://reactnative.dev/img/tiny_logo.png',
-    name: 'John Doe',
-  },
-  {
-    uri: 'https://reactnative.dev/img/tiny_logo.png',
-    name: 'Jane Doe',
-  },
-  {
-    uri: 'https://reactnative.dev/img/tiny_logo.png',
-    name: 'A Doe',
-  },
-  {
-    uri: 'https://reactnative.dev/img/tiny_logo.png',
-    name: 'B Doe',
-  },
-  {
-    uri: 'https://reactnative.dev/img/tiny_logo.png',
-    name: 'C Doe',
-  },
-];
 
 const Stories = () => {
   return (
     <FlatList
       style={styles.container}
-      data={data}
-      keyExtractor={({name}) => name}
+      data={storiesData}
+      keyExtractor={({user: {id}}) => id}
       horizontal
       showsHorizontalScrollIndicator={false}
-      renderItem={({item}) => <Story uri={item.uri} name={item.name} />}
+      renderItem={({item}) => (
+        <Story id={item.user.id} uri={item.user.uri} name={item.user.name} />
+      )}
     />
   );
 };
