@@ -4,11 +4,11 @@ import {useNavigation} from '@react-navigation/native';
 
 import ProfilePicture from '../components/ProfilePicture';
 
-const Story = ({uri, name}) => {
+const Story = ({id, uri, name}) => {
   const navigation = useNavigation();
 
   const onPress = () => {
-    navigation.navigate('Story');
+    navigation.navigate('Story', {id});
   };
 
   return (
